@@ -15,7 +15,7 @@ public class MoodAnalysis {
 	}
 
 
-	public String checkMood()
+	public String checkMood() throws MoodAnalysisException
 	{
 		try {
 			if(message.contains("Sad"))
@@ -24,7 +24,7 @@ public class MoodAnalysis {
 				return "HAPPY";
 		}
 		catch (NullPointerException e) {
-			return "HAPPY";
+			throw new MoodAnalysisException("Empty or Null Mood.");
 		}
 	}
 }

@@ -36,13 +36,24 @@ public class MoodAnalysisTest {
 	}
 	
 	@Test
-	public void givenNullMood_ShouldReturn_Happy() {
+	public void givenNullMood_ShouldThrow_CustomException() {
 		MoodAnalysis moodObj = new MoodAnalysis(null);
 		try {
 			moodObj.checkMood();
 		}
-		catch (Exception e) {
-			assertEquals("Null Mood" , "HAPPY" , e.getMessage());
+		catch (MoodAnalysisException e) {
+			assertEquals("Empty or Null Mood." , e.getMessage());
+		}
+	}
+		
+	@Test
+	public void givenEmptyMood_ShouldThrow_CustomException() {
+		MoodAnalysis moodObj = new MoodAnalysis("");
+		try {
+			moodObj.checkMood();
+		}
+		catch (MoodAnalysisException e) {
+			assertEquals("Empty or Null Mood." , e.getMessage());
 		}
 	}
 	
