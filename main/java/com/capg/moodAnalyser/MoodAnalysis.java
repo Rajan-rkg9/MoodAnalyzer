@@ -18,13 +18,15 @@ public class MoodAnalysis {
 	public String checkMood() throws MoodAnalysisException
 	{
 		try {
+			if(message.length() == 0)
+				throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.ENTETRED_EMPTY , "Empty  Mood.");	
 			if(message.contains("Sad"))
 				return "SAD";
 			else
 				return "HAPPY";
 		}
 		catch (NullPointerException e) {
-			throw new MoodAnalysisException("Empty or Null Mood.");
+			throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.ENTERED_NULL , "Null Mood.");
 		}
 	}
 }

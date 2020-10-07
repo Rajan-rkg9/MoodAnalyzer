@@ -42,7 +42,7 @@ public class MoodAnalysisTest {
 			moodObj.checkMood();
 		}
 		catch (MoodAnalysisException e) {
-			assertEquals("Empty or Null Mood." , e.getMessage());
+			assertEquals(MoodAnalysisException.ExceptionType.ENTERED_NULL , e.type);
 		}
 	}
 		
@@ -53,7 +53,7 @@ public class MoodAnalysisTest {
 			moodObj.checkMood();
 		}
 		catch (MoodAnalysisException e) {
-			assertEquals("Empty or Null Mood." , e.getMessage());
+			assertEquals(MoodAnalysisException.ExceptionType.ENTETRED_EMPTY , e.type);
 		}
 	}
 	
